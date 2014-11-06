@@ -62,3 +62,4 @@ One or Three arguments to be supplied.
 3. The time calcuation hasn't been implemented. You can check the time it takes for execution using the time command.
    eg: time ./mygrep 'warning|error|critical|maximal|tutor' /usr/share/dict/american-english
 
+Note: Please use in an environment where console color is enabled. Thanks!
