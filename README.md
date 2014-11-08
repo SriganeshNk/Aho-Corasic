@@ -62,5 +62,8 @@ One or Three arguments to be supplied.
 3. The time calcuation hasn't been implemented. You can check the time it takes for execution using the time command.
    eg: time ./mygrep 'warning|error|critical|maximal|tutor' /usr/share/dict/american-english
 
-NOTE: Please provide Patterns seperated by '|' even if the number of patters is 1 
+NOTE: 
+1. Please provide Patterns seperated by '|' even if the number of patters is 1 
 eg: ./mygrep 'warning|' /usr/share/dict/american-english
+
+2. Please use in an environment where console color is enabled. Thanks!
