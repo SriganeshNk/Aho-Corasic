@@ -177,8 +177,9 @@ void Trie :: traverse_and_print(string prefix, Node* tr) {
 
 bool Trie :: find(string word) {
 	Node *tr = root;
-	int start = -1, end = -1;
+	int start = -1, end = -1, prev_end = -1;
 	bool match = false;
+	string final_word;
 	for (int i = 0; i < word.size(); i++) {
 		char value = word[i];
 		match = false;
@@ -221,16 +222,31 @@ bool Trie :: find(string word) {
 			}
 		}
 		if ((start > -1) && (end > -1)) {
-			//cout << word << " : ";
+			/*cout << word << " : ";
 			//cout << word.substr(start, end-start) << "\n";
 			cout << word.substr(0, start);
 			cout << "\033[1;31m" << word.substr(start, end-start)  << "\033[0m";
-			cout << word.substr(end, word.size()-end) << "\n";
-			// To get the matched within a perfect match
+			cout << word.substr(end, word.size()-end) << "\n";*/
+			// Go to root to start over again (for the new word)
+			if (prev_end <= start && prev_end > -1) {
+				final_word += word.substr(prev_end, start-prev_end);
+				final_word += "\033[1;31m" + word.substr(start, end-start) + "\033[0m";
+				prev_end = end;
+			}
+			else {
+				final_word += word.substr(0,start) + "\033[1;31m" + word.substr(start, end-start) + "\033[0m";
+				prev_end = end;
+			}
 			tr = tr->fail;
 			start = -1;
 			end = -1;
 		}
+	}
+	if(prev_end < word.size() && prev_end > -1) {
+		final_word += word.substr(prev_end, word.size()-prev_end);
+	}
+	if(final_word.size()) {
+		cout << final_word << "\n";
 	}
 	return true;
 }

@@ -49,6 +49,11 @@ int main(int argc, char* argv[]) {
 	    	    patternfile.close();
 				data.clear();
    		 	}
+			else {
+				cout << "No " << argv[2] << " file exists \n";
+				cout << "Please provide pattern delimited by \"|\" \n";
+				return 0;
+			}
 		}
 	}
 	else {
