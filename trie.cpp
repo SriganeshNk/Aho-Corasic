@@ -248,5 +248,7 @@ bool Trie :: find(string word) {
 	if(final_word.size()) {
 		cout << final_word << "\n";
 	}
-	return true;
+	if(prev_end > -1)
+		return true;
+	return false;
 }

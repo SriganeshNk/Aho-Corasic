@@ -96,10 +96,11 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	else {
-		cout << "\n Enter the string\n";
+		cout << "\nEnter the string\n";
 		while(cin) {
 			getline(cin, data);
-			t.find(data);
+			if(!t.find(data))
+				cout << "\n No match\n";
 		}
 	}
 	return 0;	
